@@ -10,6 +10,18 @@ use Mix.Config
 config :cha_api,
   ecto_repos: [ChaApi.Repo]
 
+# POSTGRES
+config :cha_api, ChaApi.Repo,
+   username: System.get_env("PGUSER"),
+   password: System.get_env("PGPASSWORD"),
+   hostname: System.get_env("PGHOST"),
+   port: System.get_env("PGPORT"),
+   database: System.get_env("PGDATABASE"),
+   pool_size: 10
+#  Docker
+config :cha_api, ChaApi.Endpoint,
+   http: [ip: {0, 0, 0, 0}, port: 4000]
+
 # Configures the endpoint
 config :cha_api, ChaApiWeb.Endpoint,
   url: [host: "localhost"],

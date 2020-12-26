@@ -7,6 +7,10 @@ defmodule ChaApiWeb.Router do
 
   scope "/api", ChaApiWeb do
     pipe_through :api
+
+    resources "/events", EventController do
+      resources "/articles", ArticleController
+    end
   end
 
   # Enables LiveDashboard only for development
