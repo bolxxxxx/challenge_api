@@ -8,6 +8,8 @@ defmodule ChaApiWeb.Router do
   scope "/api", ChaApiWeb do
     pipe_through :api
 
+    post("/user/sign_in", User.SessionController, :create)
+
     resources "/events", EventController do
       resources "/articles", ArticleController
     end
