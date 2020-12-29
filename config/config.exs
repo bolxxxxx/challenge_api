@@ -42,6 +42,10 @@ config :cha_api, ChaApiWeb.Guardian,
   issuer: "cha_api_web",
   secret_key: "CuT1OFIdGI0YH9Ry4Xr7Cm06Q9ti+Rp527h0ZPgukDb3ugQCb7ETiNWLhjZrc4/7"
 
+config :cha_api, ChaApiWeb.AuthAccessPipeline,
+  module: ChaApiWeb.Guardian,
+  error_handler: ChaApiWeb.AuthErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
